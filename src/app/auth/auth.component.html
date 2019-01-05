@@ -1,0 +1,54 @@
+<mat-tab-group mat-align-tabs="center" animationDuration="1000ms">
+  <mat-tab label="Login">
+    <div class="container">
+      <form class="exemple-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <input matInput placeholder="Email" formControlName="email" name="email">
+          <mat-error *ngIf="email.invalid">
+            {{getErrorMessage()}}
+          </mat-error>
+        </mat-form-field>
+
+        <div style="margin-top: 20px"></div>
+
+        <mat-form-field>
+          <input matInput placeholder="Password" formControlName="password" name="password" [type]="hide ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hide=!hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-error *ngIf="password.invalid">
+            Please enter a valid Password
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <br>
+        <div class="example-button-row">
+          <button mat-raised-button color="primary">Login</button>
+        </div>
+      </form>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Register">
+    <div class="container">
+      <form>
+        <mat-form-field>
+            <input matInput placeholder="Name">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Email">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Passwords" [type]="hide ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hide=!hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
+        <br>
+        <br>
+        <div class="example-button-row">
+          <button mat-raised-button color="primary">Register</button>
+        </div>
+    </form>
+    </div>
+  </mat-tab>
+
+</mat-tab-group>
